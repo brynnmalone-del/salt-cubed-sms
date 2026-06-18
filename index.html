@@ -318,10 +318,11 @@
 
   <main>
     <p class="eyebrow">SMS Notifications</p>
-    <h1>Receive <em>text updates</em> from Salt Cubed Inc.</h1>
+    <h1>SMS notifications from <em>Salt Cubed Inc.</em></h1>
     <p class="lede">
-      Salt Cubed Inc. sends transactional SMS notifications for internal business operations, 
-      including scheduling reminders, workflow updates, and time-sensitive operational alerts.
+      Salt Cubed Inc. operates a transactional SMS notification service for internal business
+      operations, including scheduling reminders, workflow updates, and time-sensitive operational
+      alerts. This page describes the messaging program and how consent is established.
     </p>
 
     <div class="what-block">
@@ -334,49 +335,18 @@
       </ul>
     </div>
 
-    <form id="optin-form" novalidate>
-      <div class="form-group">
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" required />
-      </div>
+    <div class="what-block">
+      <h2>How consent works</h2>
+      <ul>
+        <li>This service is used solely by the authorized Salt Cubed Inc. account owner.</li>
+        <li>Consent is established directly by the account owner, who initiates messaging by texting the dedicated number from their own mobile device.</li>
+        <li>No messages are sent to third parties, and no contact information is collected from anyone other than the account owner.</li>
+      </ul>
+    </div>
 
-      <div class="form-group">
-        <label for="phone">Mobile Number</label>
-        <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" autocomplete="tel" required />
-      </div>
-
-      <div class="sender-id">
-        Messages will be sent from: <span>Salt Cubed Inc.</span> via a dedicated long code number.
-      </div>
-
-      <div class="consent-block">
-        <div class="consent-row">
-          <input type="checkbox" id="consent-sms" name="consent-sms" required />
-          <p class="consent-text">
-            <strong>I consent to receive text messages</strong> from Salt Cubed Inc. at the mobile number provided above. 
-            I understand these messages are transactional and operational in nature. 
-            Message and data rates may apply.
-          </p>
-        </div>
-        <div class="consent-row">
-          <input type="checkbox" id="consent-terms" name="consent-terms" required />
-          <p class="consent-text">
-            I have read and agree to the <a href="terms.html">Terms of Service</a> and 
-            <a href="privacy.html">Privacy Policy</a>.
-          </p>
-        </div>
-      </div>
-
-      <button type="submit" id="submit-btn">Confirm &amp; Subscribe</button>
-
-      <div class="msg success" id="success-msg" style="display:none">
-        ✓ You're subscribed. You'll receive a confirmation text shortly. 
-        Reply STOP at any time to opt out.
-      </div>
-      <div class="msg error" id="error-msg" style="display:none">
-        Something went wrong. Please check your information and try again.
-      </div>
-    </form>
+    <div class="sender-id">
+      Messages are sent from: <span>Salt Cubed Inc.</span> via a dedicated long code number.
+    </div>
 
     <div class="disclosures">
       <p>
@@ -400,50 +370,7 @@
     <p>© 2026 Salt Cubed Inc. &nbsp;·&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="terms.html">Terms of Service</a></p>
   </footer>
 
-  <script>
-    const form = document.getElementById('optin-form');
-    const submitBtn = document.getElementById('submit-btn');
-    const successMsg = document.getElementById('success-msg');
-    const errorMsg = document.getElementById('error-msg');
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-
-      const name = document.getElementById('name').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const consentSms = document.getElementById('consent-sms').checked;
-      const consentTerms = document.getElementById('consent-terms').checked;
-
-      successMsg.style.display = 'none';
-      errorMsg.style.display = 'none';
-
-      if (!name || !phone || !consentSms || !consentTerms) {
-        errorMsg.textContent = 'Please fill in all fields and check both consent boxes.';
-        errorMsg.style.display = 'block';
-        return;
-      }
-
-      // Basic phone validation
-      const phoneDigits = phone.replace(/\D/g, '');
-      if (phoneDigits.length < 10) {
-        errorMsg.textContent = 'Please enter a valid mobile number.';
-        errorMsg.style.display = 'block';
-        return;
-      }
-
-      submitBtn.disabled = true;
-      submitBtn.textContent = 'Submitting…';
-
-      // In production: POST to your backend/Twilio here
-      // For carrier verification purposes, this page demonstrates the consent flow
-      setTimeout(function() {
-        successMsg.style.display = 'block';
-        form.reset();
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Confirm & Subscribe';
-      }, 800);
-    });
-  </script>
 
 </body>
 </html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
